@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kerem Kaan Oyunları</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav-shell" aria-label="Ana menü">
+        <a class="brand" href="#top" aria-label="Kerem Kaan oyun paneli">
+          <span class="brand-mark">K</span>
+          <span>Kerem Kaan</span>
+        </a>
+        <div class="nav-links">
+          <a href="#oyunlar">Oyunlar</a>
+          <a href="#kutuphane">Kütüphane</a>
+        </div>
+        <button class="nav-action" id="openAddGameTop" type="button">Oyun Ekle</button>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Yerel oyun vitrini</p>
+          <h1>Kerem Kaan</h1>
+          <p class="hero-line">Favori oyunları tek ekranda, tek tıkla hazır.</p>
+          <div class="hero-actions">
+            <button class="primary-button" id="openAddGameHero" type="button">
+              <span class="button-icon plus-icon" aria-hidden="true"></span>
+              <span>Oyun Ekle</span>
+            </button>
+            <button class="secondary-button" id="scanDesktopHero" type="button">
+              <span class="button-icon scan-icon" aria-hidden="true"></span>
+              <span>Masaüstünü Tara</span>
+            </button>
+          </div>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <img src="/assets/hero-console.png" alt="" />
+        </div>
+      </section>
+
+      <section class="toolbar-band" id="oyunlar">
+        <div class="toolbar">
+          <div>
+            <p class="eyebrow">Oyunlar</p>
+            <h2>Kütüphane</h2>
+          </div>
+          <div class="tools">
+            <label class="search-box">
+              <span class="search-icon" aria-hidden="true"></span>
+              <input id="searchInput" type="search" placeholder="Oyun ara" autocomplete="off" />
+            </label>
+            <button class="icon-button" id="scanDesktop" type="button" title="Masaüstünü tara" aria-label="Masaüstünü tara">
+              <span class="scan-icon" aria-hidden="true"></span>
+            </button>
+            <button class="icon-button dark" id="openAddGame" type="button" title="Oyun ekle" aria-label="Oyun ekle">
+              <span class="plus-icon" aria-hidden="true"></span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-shell" id="kutuphane">
+        <div class="status-bar" id="statusBar" role="status" aria-live="polite"></div>
+        <div class="game-grid" id="gameGrid"></div>
+        <div class="empty-state" id="emptyState" hidden>
+          <h3>Oyun bulunamadı</h3>
+          <p>Aramayı temizleyip tekrar deneyebilirsin.</p>
+        </div>
+      </section>
+
+      <section class="discover-panel" id="discoverPanel" hidden>
+        <div class="discover-shell">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Bulunan kısayollar</p>
+              <h2>Masaüstü ve uygulamalar</h2>
+            </div>
+            <button class="text-button" id="closeDiscover" type="button">Kapat</button>
+          </div>
+          <div class="shortcut-list" id="shortcutList"></div>
+        </div>
+      </section>
+    </main>
+
+    <dialog class="game-dialog" id="gameDialog">
+      <form class="game-form" id="gameForm" method="dialog">
+        <div class="dialog-heading">
+          <div>
+            <p class="eyebrow">Yeni oyun</p>
+            <h2 id="dialogTitle">Oyun Ekle</h2>
+          </div>
+          <button class="icon-button ghost" id="closeDialog" type="button" title="Kapat" aria-label="Kapat">
+            <span class="close-icon" aria-hidden="true"></span>
+          </button>
+        </div>
+
+        <input id="gameId" type="hidden" />
+
+        <label>
+          <span>Oyun adı</span>
+          <input id="gameTitle" name="title" type="text" required placeholder="Örn. Rocket League" />
+        </label>
+
+        <label>
+          <span>Kısayol yolu veya açılış linki</span>
+          <input id="gameTarget" name="launchTarget" type="text" required placeholder="steam://rungameid/730 veya /Applications/Game.app" />
+        </label>
+
+        <div class="form-row">
+          <label>
+            <span>Platform</span>
+            <input id="gamePlatform" name="platform" type="text" placeholder="Steam" />
+          </label>
+          <label>
+            <span>Tür</span>
+            <input id="gameGenre" name="genre" type="text" placeholder="Yarış" />
+          </label>
+        </div>
+
+        <div class="form-row">
+          <label>
+            <span>Kapak stili</span>
+            <select id="gameCover" name="cover">
+              <option value="/assets/default-game.png">Varsayılan</option>
+              <option value="/assets/counter-strike-2.png">FPS mavi</option>
+              <option value="/assets/valorant.png">FPS kırmızı</option>
+              <option value="/assets/assetto-corsa.png">Yarış</option>
+              <option value="/assets/minecraft.png">Sandbox</option>
+              <option value="/assets/fortnite.png">Aksiyon</option>
+            </select>
+          </label>
+          <label>
+            <span>Vurgu rengi</span>
+            <input id="gameAccent" name="accent" type="color" value="#0071e3" />
+          </label>
+        </div>
+
+        <div class="dialog-actions">
+          <button class="text-button danger" id="deleteGame" type="button" hidden>Sil</button>
+          <button class="secondary-button" id="cancelDialog" type="button">Vazgeç</button>
+          <button class="primary-button" type="submit">
+            <span class="button-icon check-icon" aria-hidden="true"></span>
+            <span>Kaydet</span>
+          </button>
+        </div>
+      </form>
+    </dialog>
+
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "name": "kerem-kaan-game-hub",
+  "version": "1.0.0",
+  "description": "Kerem Kaan icin yerel oyun acici web paneli.",
+  "main": "server.js",
+  "scripts": {
+    "assets": "node scripts/generate-assets.js",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "game-launcher",
+    "local",
+    "kerem-kaan"
+  ],
+  "author": "",
+  "license": "MIT"
+}

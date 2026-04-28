@@ -1,0 +1,52 @@
+[
+  {
+    "id": "counter-strike-2",
+    "title": "CS:GO / Counter-Strike 2",
+    "genre": "Taktiksel FPS",
+    "platform": "Steam",
+    "launchTarget": "steam://rungameid/730",
+    "cover": "/assets/counter-strike-2.png",
+    "accent": "#4f7cff",
+    "createdAt": "2026-04-28T00:00:00.000Z"
+  },
+  {
+    "id": "valorant",
+    "title": "Valorant",
+    "genre": "Taktiksel FPS",
+    "platform": "Riot Games",
+    "launchTarget": "riotclient://launch-product=valorant&launch-patchline=live",
+    "cover": "/assets/valorant.png",
+    "accent": "#ff3b4f",
+    "createdAt": "2026-04-28T00:00:00.000Z"
+  },
+  {
+    "id": "assetto-corsa",
+    "title": "Assetto Corsa",
+    "genre": "Yarış Simülasyonu",
+    "platform": "Steam",
+    "launchTarget": "steam://rungameid/244210",
+    "cover": "/assets/assetto-corsa.png",
+    "accent": "#00a36c",
+    "createdAt": "2026-04-28T00:00:00.000Z"
+  },
+  {
+    "id": "minecraft",
+    "title": "Minecraft",
+    "genre": "Sandbox",
+    "platform": "Launcher",
+    "launchTarget": "minecraft://",
+    "cover": "/assets/minecraft.png",
+    "accent": "#30a46c",
+    "createdAt": "2026-04-28T00:00:00.000Z"
+  },
+  {
+    "id": "fortnite",
+    "title": "Fortnite",
+    "genre": "Battle Royale",
+    "platform": "Epic Games",
+    "launchTarget": "com.epicgames.launcher://apps/Fortnite?action=launch&silent=true",
+    "cover": "/assets/fortnite.png",
+    "accent": "#8e56ff",
+    "createdAt": "2026-04-28T00:00:00.000Z"
+  }
+]
